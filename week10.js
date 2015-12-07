@@ -27,12 +27,12 @@ app.get('/',function(req,res,next){
 
 app.post('/',function(req,res,next){
   var context = {};
-  var uName = document.getElementById("name").value;
-  var uReps = document.getElementById("reps").value;
-  var uWeight = document.getElementById("weight").value;
-  var uDate = document.getElementById("date").value;
-  var uLbs = document.getElementById("lbs").value;
-  req.query.c = [uName, uReps, uWeight, uDate, uLbs];
+  //var uName = document.getElementById("name").value;
+  //var uReps = document.getElementById("reps").value;
+  //var uWeight = document.getElementById("weight").value;
+  //var uDate = document.getElementById("date").value;
+  //var uLbs = document.getElementById("lbs").value;
+  //req.query.c = [uName, uReps, uWeight, uDate, uLbs];
   mysql.pool.query("INSERT INTO todo (`name`,`reps`,`weight`,`date`,`lbs`) VALUES (?,?,?,?,?,?)", [req.query.c], function(err, result){
     if(err){
       next(err);
