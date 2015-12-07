@@ -1,21 +1,20 @@
-document.addEventListener('DOMContentLoaded', addWorkout());
-
-function addWorkout(){
+function addRow(){
+    var req = new XMLHttpRequest();
 	
-app.post('/',function(req,res,next){
-  var context = {};
+	var addName = document.getElementById("name").value;
+    var addReps = document.getElementById("reps").value;
+	var addWeight = document.getElementById("weight").value;
+    var addDate = document.getElementById("date").value;
+    var addLbs = document.getElementById("lbs").value;
 
-  if(req.body['Add']){
+	req.open("GET", "http://52.10.69.111:3000/insert?name=" + addName + "&reps=" + addReps + "&weight=" + addWeight + "&date=" + addDate + "&lbs=" + addLbs, true);
+	req.setRequestHeader("Content-type", "application/json");
+	req.addEventListener("load", function(){
+		console.log("done: ", req.status);
+		});
+	req.send(null);	
 
-    var context = {};
-    mysql.pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?, ?, ?, ?, ?)", [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
-      if(err){
-        next(err);
-        return;
-      }
-      context.results = "Inserted id " + result.insertId;
-      res.render('home',context);
-    });
-  }
-});
 }
+
+document.getElementById("submitData").addEventListener("click", insert);
+
