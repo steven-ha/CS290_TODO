@@ -25,7 +25,7 @@ app.get('/',function(req,res,next){
   });
 });
 
-app.get('/insert',function(req,res,next){
+app.post('/',function(req,res,next){
   var context = {};
   var uName = document.getElementById("name").value;
   var uReps = document.getElementById("reps").value;
