@@ -1,8 +1,8 @@
 function addRow(){
     var req = new XMLHttpRequest();
 	
-	var addName = document.getElementById("name").value;
-    var addReps = document.getElementById("reps").value;
+	var addName = steven;//document.getElementById("name").value;
+    var addReps = 3;//document.getElementById("reps").value;
 	var addWeight = document.getElementById("weight").value;
     var addDate = document.getElementById("date").value;
     var addLbs = document.getElementById("lbs").value;
@@ -17,4 +17,3 @@ function addRow(){
 }
 
 document.getElementById("submitData").addEventListener("click", addRow);
-
