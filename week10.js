@@ -43,8 +43,10 @@ app.get('/insert',function(req,res,next){
       next(err);
       return;
     }
-    context.result = JSON.stringify(rows);
-    context.results = rows;
+    context.result = {"list" : JSON.stringify(rows)};
+    context.results = {"list" : rows};
+    console.log(context);
+    console.log(typeof(context.results.list));
     res.render('home', context);
   });
   
