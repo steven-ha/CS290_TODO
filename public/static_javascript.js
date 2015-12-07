@@ -11,10 +11,9 @@ function addRow(){
 	req.open("GET", "http://52.10.69.111:3000/insert?name=" + addName + "&reps=" + addReps, true);
 	req.setRequestHeader("Content-type", "application/json");
 	req.addEventListener("load", function(){
-		console.log("done: ", req.status);
-		});
+		console.log("Row Insert into Table");
+	});
 	req.send(null);	
-
 }
 
 document.getElementById("submitData").addEventListener("click", addRow);
