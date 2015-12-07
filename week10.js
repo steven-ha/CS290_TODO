@@ -34,15 +34,22 @@ app.get('/insert',function(req,res,next){
     }
     //context.results = "Inserted id " + result.insertId;
     //res.render('home',context);
-mysql.pool.query('SELECT * FROM todo', function(err, rows, fields){
+
+  });
+  
+  mysql.pool.query("SELECT * FROM todo", function(err, rows, fields){
     if(err){
       next(err);
       return;
     }
-    context.results = rows;
-    res.render('home',context);
+    context.result = {"list" : JSON.stringify(rows)};
+    context.results = {"list" : rows};
+    console.log(context);
+    console.log(typeof(context.results.list));
+    res.render('home', context);
   });
-  });
+  
+  
 });
 
 app.get('/delete',function(req,res,next){
