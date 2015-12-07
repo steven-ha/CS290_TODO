@@ -16,5 +16,5 @@ function addRow(){
 
 }
 
-document.getElementById("submitData").addEventListener("click", insert);
+document.getElementById("submitData").addEventListener("click", addRow);
 
