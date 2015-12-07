@@ -32,7 +32,7 @@ app.get('/insert',function(req,res,next){
   var uWeight = document.getElementById("weight").value;
   var uDate = document.getElementById("date").value;
   var uLbs = document.getElementById("lbs").value;
-  [req.query.c] = [uName, uReps, uWeight, uDate, uLbs];
+  req.query.c = [uName, uReps, uWeight, uDate, uLbs];
   mysql.pool.query("INSERT INTO todo (`name`,`reps`,`weight`,`date`,`lbs`) VALUES (?,?,?,?,?,?)", [req.query.c], function(err, result){
     if(err){
       next(err);
