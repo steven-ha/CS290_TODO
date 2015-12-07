@@ -16,7 +16,7 @@
 				<option value=0>kgs</option>			
 			</select>
 		</fieldset>
-		<input type="submit" value="Add Workout" />
+		<input type="submit" value="Add Workout" id="submitData" />
 	</form>
 		
 </div>
@@ -24,5 +24,8 @@
 	
 	</form>
 <p>{{results}}</p>
+{{#each results.list}}
+	<p>{{this}}<</p>
+{{/each}}
 
 <script src="static_javascript.js"></script>
