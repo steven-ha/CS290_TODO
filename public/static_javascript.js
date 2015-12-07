@@ -1,4 +1,3 @@
-document.getElementById("submitData").addEventListener("click", addRow());
 function addRow(){
     var req = new XMLHttpRequest();
 	
@@ -17,3 +16,4 @@ function addRow(){
 	req.send(null);	
 }
 
+document.getElementById("submitData").addEventListener("click", addRow);
